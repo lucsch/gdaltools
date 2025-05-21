@@ -4,7 +4,7 @@ from conans import ConanFile, CMake
 class gdal_translate(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     requires = [
-        "gdal/3.5.2@terranum-conan+gdal/stable",
+        "gdal/3.10.3@terranum-conan+gdal/stable",
         ]
 
     generators = "cmake", "gcc", "txt"
