@@ -21,9 +21,7 @@ if (UNIX)
 endif (UNIX)
 
 include_directories("src")
-add_executable(${PROJECT_NAME}
-		"src/gdal_translate_bin.cpp"
-		"src/commonutils.cpp")
+add_executable(${PROJECT_NAME}  "src/gdal_translate_bin.cpp")
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}")

@@ -21,6 +21,15 @@ class gdal_translate(ConanFile):
         self.copy("*.dylib*", dst="bin", src="lib")  # From lib to bin
         self.copy("*.so*", dst="bin", src="lib")  # From lib to bin
 
+        # copy proj library datum
+        if self.settings.os == "Windows" or self.settings.os == "Linux":
+            self.copy("*", dst="share/proj", src="res", root_package="proj")
+        # copy proj.db into the binary directory on Linux
+        if self.settings.os == "Linux":
+            self.copy("proj.db", dst="bin", src="res", root_package="proj")
+        if self.settings.os == "Macos":
+            self.copy("proj.db", dst="bin", src="res", root_package="proj")
+
     def build(self):
         cmake = CMake(self)
         cmake.configure()
